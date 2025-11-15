@@ -25,11 +25,17 @@ function TodoItem(props) {
 
     return(
         <div className={styles["todoItem"]}>
-            <label htmlFor={todo.id} className={styles["circleCheckbox"]}>
-                <input type="checkbox" id={todo.id} checked={todo.isCompleted} onChange={handleChange}/>
-                <span className={styles["checkmark"]}></span>
-            </label>
-            <p className={todo.isCompleted && styles["taskComplete"]}>{todo.task}</p>
+            <div className={styles["leftContainer"]}>
+                <label htmlFor={todo.id} className={styles["circleCheckbox"]}>
+                    <input type="checkbox" id={todo.id} checked={todo.isCompleted} onChange={handleChange}/>
+                    <span className={styles["checkmark"]}></span>
+                </label>
+                <div className={todo.isCompleted ? styles["taskComplete"] : undefined}>
+                    <p>{todo.task}</p>
+                    {todo.description && <p className={styles["description"]}>{todo.description}</p>}
+                    <p className={styles["createdAt"]}>{todo.createdAt}</p>
+                </div>
+            </div>
             <button onClick={removeTodo} className={styles["removeBtn"]}>X</button>
         </div>
     )

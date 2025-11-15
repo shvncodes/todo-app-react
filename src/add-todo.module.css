@@ -16,3 +16,14 @@
         cursor: pointer;
     }
 }
+
+.description {
+    background-color: #f3ecec;
+    width: 320px;
+    height: 150px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    resize: none;
+}

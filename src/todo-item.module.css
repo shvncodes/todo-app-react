@@ -5,6 +5,12 @@
     font-size: 18px;
 }
 
+.leftContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .circleCheckbox {
   cursor: pointer;
   display: inline-flex;
@@ -46,6 +52,15 @@
 .taskComplete{
     text-decoration: line-through;
     color: gray;
+}
+
+.description {
+    font-size: 16px;
+}
+
+.createdAt{
+    font-size: 14px;
+    color: rgb(82, 80, 80);
 }
 
 .removeBtn {
