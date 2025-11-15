@@ -1,0 +1,60 @@
+.todoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.circleCheckbox {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.circleCheckbox input {
+  display: none;
+}
+
+.circleCheckbox .checkmark {
+  width: 28px;
+  height: 28px;
+  background: #f55c47; /* orange circle */
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  transition: 0.2s ease;
+}
+
+.circleCheckbox .checkmark::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 9px;
+  width: 8px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.circleCheckbox input:checked + .checkmark::after {
+  opacity: 1;
+}
+
+.taskComplete{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.removeBtn {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 20px;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
