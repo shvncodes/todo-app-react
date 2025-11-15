@@ -1,10 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTodo from "./add-todo";
 import TodoItem from "./todo-item";
 import "./App.css";
 
+const LS_KEY = "todo-list-react";
+
+function readTodosFromLocalStorage() {
+  try{
+    const lsTodos = JSON.parse(localStorage.getItem(LS_KEY));
+    if(!lsTodos) return [];
+    return lsTodos;
+  } catch(err) {
+    console.log("Error: ", err);
+    return[];
+  }
+}
+
 function App() {
-  const [todoList, setTodoList] = useState([])
+  const [todoList, setTodoList] = useState(()=> readTodosFromLocalStorage());
+
+  useEffect(()=>{
+    try{
+      localStorage.setItem(LS_KEY, JSON.stringify(todoList));
+    } catch(err) {
+      console.log("Error: ", err);
+    }
+  }, [todoList]);
 
   return (
     <div className="mainContainer">
