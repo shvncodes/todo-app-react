@@ -3,26 +3,36 @@ import styles from './add-todo.module.css';
 
 function AddTodo(props) {
     const {setTodoList} = props;
-    const [task, setTask] = useState("");
-    const [description, setDescription] = useState("");
+    const [todo, setTodo] = useState({task: "", description: ""});
 
     const handleChange = (event) => {
         const text = event.target.value;
-        setTask(text);
+        setTodo(prev => {
+           return {
+                ...prev,
+                task: text
+            }
+        });
     }
 
     const handleDespChange = (e)=> {
         const desp = e.target.value;
-        setDescription(desp);
+        setTodo((prev) =>{
+            return {
+                ...prev,
+                description: desp
+            }
+        }
+        );
     }
 
     const addTaskInTodo = ()=> {
-        if(task.trim().length === 0) return;
+        if(todo.task.trim().length === 0) return;
 
         const taskObj = {
             id: Date.now(),
-            task: task.trim(),
-            description: description.trim(),
+            task: todo.task.trim(),
+            description: todo.description.trim(),
             isCompleted: false,
             createdAt: new Date().toDateString()
         }
@@ -30,17 +40,19 @@ function AddTodo(props) {
             return [taskObj, ...prev]
         });
 
-        setTask("");
-        setDescription("");
+        setTodo({
+            task: "",
+            description: ""
+        })
     }
 
     return (
         <div>
             <div className={styles["container"]}>
-                <input type="text" placeholder='Add your task' value={task} onChange={handleChange}/>
+                <input type="text" placeholder='Add your task' value={todo.task} onChange={handleChange}/>
                 <button onClick={addTaskInTodo}>ADD</button>
             </div>
-            <textarea className={styles["description"]} name='text' placeholder='Add description' value={description} onChange={handleDespChange}/>
+            <textarea className={styles["description"]} name='text' placeholder='Add description' value={todo.description} onChange={handleDespChange}/>
         </div>
     )
 }
