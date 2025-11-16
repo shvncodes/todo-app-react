@@ -19,11 +19,11 @@
 }
 
 .title {
-    && {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  && {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .task {
@@ -31,7 +31,7 @@
   width: 320px;
   padding: 10px 20px;
   border-radius: 10px;
-  border: none;
+  border: 1px solid #bbb6b6;
   background-color: #fbfbfb;
 }
 
@@ -54,7 +54,7 @@
   width: 320px;
   height: 150px;
   border-radius: 20px;
-  border: none;
+  border: 1px solid #bbb6b6;
   font-size: 16px;
   padding: 10px 20px;
   resize: none;

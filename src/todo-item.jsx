@@ -46,10 +46,10 @@ function TodoItem(props) {
       <div className={styles["rightSection"]}>
         {todo.category && <p className={styles["category"]}>{todo.category}</p>}
         <div className={styles["btns"]}>
-            <button className={styles["editBtn"]}>Edit</button>
-            <button onClick={removeTodo} className={styles["removeBtn"]}>
+          <button className={styles["editBtn"]}>Edit</button>
+          <button onClick={removeTodo} className={styles["removeBtn"]}>
             X
-            </button>
+          </button>
         </div>
       </div>
     </div>

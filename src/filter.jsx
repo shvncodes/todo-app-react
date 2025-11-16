@@ -7,6 +7,7 @@ function Filter(props) {
   const { todoList, setFilteredList } = props;
   const [status, setStatus] = useState("");
   const [category, setCategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const StatusFilteredTodos = todoList.filter((todo) => {
@@ -18,18 +19,38 @@ function Filter(props) {
       return true;
     });
 
-    const finalTodoList = StatusFilteredTodos.filter((todo) => {
+    const categoryFilteredTodoList = StatusFilteredTodos.filter((todo) => {
       if (category === "") return true;
       if (todo.category === category) return true;
       return false;
     });
 
+    const finalTodoList = categoryFilteredTodoList.filter((todo) => {
+      return (
+        todo.task.includes(searchQuery) ||
+        todo.description.includes(searchQuery)
+      );
+    });
+
     setFilteredList(finalTodoList);
-  }, [todoList, status, category]);
+  }, [todoList, status, category, searchQuery]);
+
+  const resetFilters = ()=> {
+    setCategory("");
+    setStatus("");
+    setSearchQuery("");
+  }
 
   return (
     <div className={styles["filterSection"]}>
       <h1>Filters</h1>
+      <input
+        type="text"
+        className={styles["serach"]}
+        placeholder="Search by todo and description"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <Dropdown
         label={"Status"}
         id={"Status"}
@@ -44,6 +65,7 @@ function Filter(props) {
         value={category}
         setValue={setCategory}
       />
+        <button className={styles["resetBtn"]} onClick={resetFilters}>Reset</button>
     </div>
   );
 }
