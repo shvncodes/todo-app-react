@@ -1,4 +1,9 @@
-.mainContainer {
+.main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.todoConatiner {
   display: flex;
   justify-content: center;
   align-items: center;

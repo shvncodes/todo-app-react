@@ -1,0 +1,20 @@
+.main{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+
+    label{
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+.dropdown {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border: none;
+    background-color: #f6f5f5;
+    border-radius: 20px;
+}
