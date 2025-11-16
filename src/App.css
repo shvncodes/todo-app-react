@@ -1,15 +1,15 @@
 .main {
   display: flex;
   justify-content: space-evenly;
+  padding: 40px;
 }
 
 .todoConatiner {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 30px;
-  padding: 40px;
+  padding: 0 40px;
 }
 
 .title {
@@ -22,4 +22,16 @@
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+}
+
+.emptyState {
+  height: 250px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #bbb6b6;
+  border-radius: 20px;
+  font-size: 18px;
+  color: gray;
 }

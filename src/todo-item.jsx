@@ -1,7 +1,15 @@
+import { useState } from "react";
 import styles from "./todo-item.module.css";
+import TodoForm from "./todo-form";
 
 function TodoItem(props) {
   const { todo, setTodoList } = props;
+  const [isEditing, setIsEditing] = useState(false);
+  const [editTodo, setEditTodo] = useState({
+    task: todo.task,
+    description: todo.description,
+    category: todo.category,
+  });
 
   const removeTodo = () => {
     setTodoList((prev) => {
@@ -22,6 +30,41 @@ function TodoItem(props) {
       });
     });
   };
+
+  const handleEditSave =()=> {
+    setTodoList((prev)=>{
+        return prev.map((item)=>{
+            if(item.id !== todo.id) return item;
+            return{
+                ...item,
+                task: editTodo.task,
+                description: editTodo.description,
+                category: editTodo.category
+            }
+        })
+    })
+    setIsEditing(!isEditing);
+  }
+
+  if (isEditing) {
+    return (
+      <div className={styles["editSection"]}>
+        <button
+          onClick={() => setIsEditing(!isEditing)}
+          className={styles["removeEdit"]}
+        >
+          X
+        </button>
+        <TodoForm
+          heading={"Edit To-do"}
+          todo={editTodo}
+          setTodo={setEditTodo}
+          buttonText={"Save"}
+          handleSave={handleEditSave}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={styles["todoItem"]}>
@@ -46,7 +89,12 @@ function TodoItem(props) {
       <div className={styles["rightSection"]}>
         {todo.category && <p className={styles["category"]}>{todo.category}</p>}
         <div className={styles["btns"]}>
-          <button className={styles["editBtn"]}>Edit</button>
+          <button
+            className={styles["editBtn"]}
+            onClick={() => setIsEditing(!isEditing)}
+          >
+            Edit
+          </button>
           <button onClick={removeTodo} className={styles["removeBtn"]}>
             X
           </button>

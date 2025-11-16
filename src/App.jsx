@@ -35,11 +35,17 @@ function App() {
       <div className="todoConatiner">
         <h1 className="title">To-Do List</h1>
         <div className="todoList">
-          {filteredList.map((todo) => {
-            return (
-              <TodoItem key={todo.id} todo={todo} setTodoList={setTodoList} />
-            );
-          })}
+          {filteredList.length === 0 ? (
+            <div className="emptyState">
+              You don't have any task yet or change filters
+            </div>
+          ) : (
+            filteredList.map((todo) => {
+              return (
+                <TodoItem key={todo.id} todo={todo} setTodoList={setTodoList} />
+              );
+            })
+          )}
         </div>
       </div>
       <AddTodo setTodoList={setTodoList} />

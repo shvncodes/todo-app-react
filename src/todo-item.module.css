@@ -1,17 +1,17 @@
 .todoItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #cdc9c9;
-    border-radius: 10px;
-    padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #cdc9c9;
+  border-radius: 10px;
+  padding: 15px;
 }
 
 .leftContainer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    word-break: break-word;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  word-break: break-word;
 }
 
 .circleCheckbox {
@@ -52,22 +52,22 @@
   opacity: 1;
 }
 
-.taskComplete{
-    text-decoration: line-through;
-    color: gray;
+.taskComplete {
+  text-decoration: line-through;
+  color: gray;
 }
 
-.title{
+.title {
   font-weight: 600;
 }
 
 .description {
-    font-size: 14px;
+  font-size: 14px;
 }
 
-.createdAt{
-    font-size: 12px;
-    color: rgb(82, 80, 80);
+.createdAt {
+  font-size: 12px;
+  color: #525050;
 }
 
 .rightSection {
@@ -100,8 +100,12 @@
     border-radius: 6px;
     border: 2px solid gray;
     background-color: transparent;
-    cursor: pointer; 
+    cursor: pointer;
   }
+}
+
+.editBtn:hover {
+  background-color: #e4e4e4;
 }
 
 .removeBtn {
@@ -112,6 +116,27 @@
   }
 }
 
-.removeBtn:hover{
+.removeBtn:hover {
   background-color: #dc1b1b;
+}
+
+.removeEdit {
+  height: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+.removeEdit:hover {
+  background-color: #dc1b1b;
+}
+
+.editSection{
+  border: 1px solid #cdc9c9;
+  border-radius: 20px;
 }

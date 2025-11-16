@@ -3,26 +3,19 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 40px;
+  padding: 0 40px;
 }
 
 .title,
 .detail {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 10px;
 
   label {
     font-size: 16px;
     font-weight: 500;
-  }
-}
-
-.title {
-  && {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
 
@@ -33,6 +26,30 @@
   border-radius: 10px;
   border: 1px solid #bbb6b6;
   background-color: #fbfbfb;
+}
+
+.task:hover {
+  background-color: #f2f0f0;
+}
+
+.description {
+  background-color: #fbfbfb;
+  width: 320px;
+  height: 150px;
+  border-radius: 20px;
+  border: 1px solid #bbb6b6;
+  font-size: 16px;
+  padding: 10px 20px;
+  resize: none;
+}
+
+.description:hover {
+  background-color: #f2f0f0;
+}
+
+.Addtask {
+  display: flex;
+  gap: 32px;
 }
 
 .AddBtn {
@@ -47,20 +64,4 @@
 
 .AddBtn:hover {
   background-color: #08a808;
-}
-
-.description {
-  background-color: #fbfbfb;
-  width: 320px;
-  height: 150px;
-  border-radius: 20px;
-  border: 1px solid #bbb6b6;
-  font-size: 16px;
-  padding: 10px 20px;
-  resize: none;
-}
-
-.Addtask {
-  display: flex;
-  gap: 32px;
 }
