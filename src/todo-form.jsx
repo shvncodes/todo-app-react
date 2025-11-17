@@ -37,40 +37,47 @@ function TodoForm(props) {
   return (
     <div className={styles["AddTodo"]}>
       <h1>{heading}</h1>
-      <div className={styles["title"]}>
-        <label htmlFor="task">Title</label>
-        <input
-          id="task"
-          className={styles["task"]}
-          type="text"
-          placeholder="Add your task"
-          value={todo.task}
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles["detail"]}>
-        <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          className={styles["description"]}
-          name="text"
-          placeholder="Add description"
-          value={todo.description}
-          onChange={handleDespChange}
-        />
-      </div>
-      <div className={styles["Addtask"]}>
-        <Dropdown
-          label={"Category"}
-          id={"Category"}
-          options={CATEGORIES}
-          value={todo.category}
-          setValue={handleCategoryChange}
-        />
-        <button className={styles["AddBtn"]} onClick={handleSave}>
-          {buttonText}
-        </button>
-      </div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSave();
+        }}
+      >
+        <div className={styles["title"]}>
+          <label htmlFor="task">Title</label>
+          <input
+            id="task"
+            className={styles["task"]}
+            type="text"
+            placeholder="Add your task"
+            value={todo.task}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles["detail"]}>
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            className={styles["description"]}
+            name="text"
+            placeholder="Add description"
+            value={todo.description}
+            onChange={handleDespChange}
+          />
+        </div>
+        <div className={styles["Addtask"]}>
+          <Dropdown
+            label={"Category"}
+            id={"Category"}
+            options={CATEGORIES}
+            value={todo.category}
+            setValue={handleCategoryChange}
+          />
+          <button type="submit" className={styles["AddBtn"]}>
+            {buttonText}
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
